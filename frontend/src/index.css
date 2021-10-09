@@ -1,0 +1,287 @@
+
+
+html {
+  font-size: 62.5%; /* 16px x 62.5 = 10px = 1rem */
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  height: 100vh;
+  font-size: 1.6rem;
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* id root in index.html */
+#root {
+  height: 100%;
+}
+
+/* Layout  gird is it's  responsable */
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'header'
+    'main'
+    'footer';
+  grid-template-columns: 1fr;
+  grid-template-rows: 5rem 1fr 5rem;
+  height: 100%;
+}
+header {
+  grid-area: header;
+  background-color: #203040;
+}
+main {
+  grid-area: main;
+  padding: 1rem;
+}
+footer {
+  grid-area: footer;
+  background-color: #203040;
+  color: #ffffff;
+}
+/* Common */
+h1{
+    font-size: 1.8rem;
+    padding: 1rem 0;
+}
+
+h2{
+  font-size: 1.6rem;
+  padding: 1rem 0;
+}
+a {
+    /* to delete under line */
+  text-decoration: none;
+}
+a:hover {
+  color: #ff8000;
+}
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+/* to make horizontal space between items */
+li{
+  margin-top: 1rem;
+}
+input, 
+select,
+textarea,
+button{
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 0.1rem #a4a4a4 solid;
+  font-size: 1.6rem;
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button{
+  background-color: #f8f8f8;
+  cursor: pointer;
+}
+input:hover, 
+select:hover ,
+textarea:hover,
+button:hover{
+  border: 0.2rem #404040 solid;
+}
+button.primary{
+  background-color: #f0c040;
+}
+
+/* the same button */
+button.block{
+  width:100%;
+}
+/* Header */
+header a {
+  color: #ffffff;
+  padding: 1rem;
+}
+a.brand {
+  color: #ffffff;
+  font-size: 3rem;
+  font-weight: bold;
+}
+/* number of cart */
+.badge {
+/* padding  = x - y */
+padding: 0.2rem 0.7rem;
+background-color: #f31b1b;
+color: #ffffff;
+border-radius: 50%;
+font-size: 1.4rem;
+margin-left: 0.4rem; /* 2px */
+
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+/* footer has two class names row and center*/
+.row.center {
+  justify-content:center;
+} /* parent class in productScreen has two class names row top*/
+.row.top{
+  align-items: flex-start;
+}
+.col-1{
+  flex: 1 1 25rem;
+}
+/* flex =  flex grow flex shrink flex basis*/
+.col-2{
+  flex: 2 1 50rem;
+  object-fit: cover;
+}
+.min-30 {
+  min-width: 30rem;
+}
+
+/*  img sizing */
+img{
+    border-radius: 0.5rem;
+    
+}
+img.small{
+max-width: 7rem;
+width: 100%;
+}
+/* to scale the image */
+img.medium {
+    max-width: 29rem;
+    width: 100%;
+    height: 29rem;
+    object-fit: cover;
+}
+img.large {
+  /* we should be set with to response */
+  /*  object-fit: contain; coz when i used object-fit: cover; it was missy im response and also in productSceen */
+  width: 100%;
+  object-fit: contain;
+  height: 500px;
+  
+}
+/* .large{
+  object-fit: cover;
+  height: 500px;
+} */
+
+/* Card */
+.card {
+  border: 0.1rem rgb(4, 61, 4) solid;
+  background-color: rgb(250, 250, 250);
+  border-radius: 0.5rem;
+  margin: 1rem;
+}
+.card-body{
+  padding: 1rem;
+}
+/* all child in card body  */
+.card-body > *{
+margin-bottom: 0.5rem; ;
+}
+.price{
+font-size: 2rem;
+color:#0f0f0f;
+}
+/* Rating */
+.rating span{
+  color:#f0c040;
+  margin:0.1rem;
+
+}
+.rating span:last-child {
+  color:#404040;
+}
+
+/* loading box  */
+
+.loading {
+  display: block !important;
+}
+/* alert productScreen  */
+.success {
+  color:#20a020;
+}
+.danger {
+  color:#a02020;
+}
+/* messageBox component */
+.alert{
+  padding: 1rem;
+  border: 0.1rem solid transparent;
+  border-radius: 1rem;
+ 
+}
+.alert-info {
+  color:#2020a0;
+  border: #e0e0ff;
+  background-color: #e6e6fb;
+}
+.alert-danger {
+  color:#a02020;
+  background-color: #ffe0e0e0;
+
+}
+/* Form */
+.form {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+.form > div {
+  display: flex;
+  /* coz we wanna put the input in above and the label in the blew */
+  flex-direction: column;
+  margin: 1rem;
+}
+/* label inside the form */
+.form label {
+ /*  vertically x + horizontally y */
+  margin: 1rem 0;
+  
+}
+/* Dropdown */
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+.dropdown-content {
+  position: absolute;
+  display: none;
+  right: 0;
+  min-width: 12rem;
+  padding: 1rem;
+  z-index: 1;
+  background-color: #203040;
+  margin: 0;
+  margin-top: 0.4rem;
+  border-radius: 0.5rem;
+}
+/*  when mouse over drop dropdown name of uer it will drop down to see signout coz firstly ul it was display none then i made it display block when you hover on it therefore its drop */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Checkout steps */
+/* we create two differnt style */
+/* checkout-steps > div =  for direct div  */
+.checkout-steps > div {
+border-top: 0.3rem #c0c0c0 solid;
+color: #c0c0c0;
+flex: 1 ;
+padding: 1rem;
+font-weight: bold;
+}
+/* the class active */
+.checkout-steps > div.active {
+  border-top-color:#f08000 ;
+  color: #f08000;
+  }
+
