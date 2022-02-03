@@ -5,7 +5,6 @@ import { paymentMethodAction } from "../actions/cartActions";
 import CheckoutSteps from "../components/CheckoutSteps";
 
 const PaymentScreen = (props) => {
-  // if the user don't fill the form in shipping then return it to shipping screen to fill it and don't stay in payment screen EX: if you just sign in then write in url 3000/payment then you will redirect to shipping screen coz you don't fill the shipping form
   const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;
   if (!shippingAddress.address) {
@@ -37,14 +36,11 @@ const PaymentScreen = (props) => {
               name="paymentMethod"
               onChange={(e) => setPaymentMethod(e.target.value)}
               required
-              //  checked = means by default is checked
               checked
             ></input>
             <label htmlFor="IDPayPal">PayPal</label>
           </div>
         </div>
-
-        {/* stripe  */}
 
         <div>
           <div>

@@ -10,11 +10,10 @@ const userSchema = new Schema({
 
 },
 {
-    // to record the time
+   
     timestamps: true,
 }
 
 );
-//  model is a function takes two params the first one name of <Model the second one is schema  
 const User = mongoose.model('User', userSchema);
 module.exports = User;

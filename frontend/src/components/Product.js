@@ -6,7 +6,6 @@ const Product = (props) => {
     const { product } = props;
     return (
             <div className="card" key={product._id}>
-                  {/*  <!-- Card > product-name & product-img & product-rate &product-price--> */}
                     <Link to={`/product/${product._id}`}>
                         <img src={product.image} className="medium" alt={product.name} />
                     </Link>

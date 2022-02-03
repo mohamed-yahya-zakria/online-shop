@@ -14,15 +14,9 @@ import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 import SigninScreen from "./screens/SigninScreen";
 
 const App = () => {
-  // to show the number of items in the cart in the screen
-  // useSelector = bring redux store and access on the cart
   const cart = useSelector((state) => state.cart);
-  //cartItems =  is an array in cartReducer which i store the data
-  // iam gonna get cartItems from cart object
   const { cartItems } = cart;
-  // to show the users in sign in part in browser we should firstly get the data
   const userSignin = useSelector((state) => state.userSignin);
-  // userData is property from userReducer which catch the data
   const { userData } = userSignin;
   console.log(userSignin)
 
@@ -49,9 +43,6 @@ const App = () => {
                 <span className="badge">{cartItems.length}</span>
               )}
             </Link>
-                {/*  fa = font awosen */}
-            {/* if userInfo in exist render name of user */}
-             {/* if userInfo in not exist render sign in page*/}
             {userData ? (
               <div className='dropdown'> 
               <Link to="#">{userData.name} <i class="fa fa-caret-down"></i> {' '}</Link>
@@ -60,14 +51,11 @@ const App = () => {
                 <Link to="#signout" onClick={signoutHandler}> Sign out</Link>
               </ul>
               </div> ) : (
-              
-            
               <Link to="/signin">Signin</Link>
             )}
           </div>
         </header>
         <main>
-          {/* /cart/:id?" here in optional if id after ? it will be go CartScreen */}
           <Route path="/cart/:id?" component={CartScreen}></Route>
           <Route path="/product/:id" component={ProductScreen}></Route>
           <Route path="/signin" component={SigninScreen}></Route>
@@ -76,7 +64,6 @@ const App = () => {
           <Route path='/payment' component={PaymentScreen}></Route>
           <Route path='/placeorder' component={PlaceOrderScreen}></Route>
           <Route path="/order/:id" component={OrderScreen}></Route>
-          {/*exact means if url exactly (/) then run home component */}
           <Route path="/" component={HomeScreen} exact></Route>
         </main>
         <footer className="row center"> All rights reserved</footer>

@@ -13,7 +13,6 @@ export const userRegisterReducer = (state = {}, action) => {
     case USER_REGISTER_REQUEST:
       return { loading: true };
     case USER_REGISTER_SUCCESS:
-      // userData in var i created to call it as state in other component and it has all data
       return { loading: false, userData: action.payload };
     case USER_REGISTER_FAIL:
       return { loading: false, error: action.payload };
@@ -28,7 +27,6 @@ export const userSignReducer = (state = {}, action) => {
     case USER_SIGNIN_REQUEST:
       return { loading: true };
     case USER_SIGNIN_SUCCESS:
-      // userData in var i created to call it as state in other component and it has all data
       return { loading: false, userData: action.payload };
     case USER_SIGNIN_FAIL:
       return { loading: false, error: action.payload };
@@ -39,4 +37,3 @@ export const userSignReducer = (state = {}, action) => {
   }
 };
 
-//by have {} this time the userInfo it will be remove

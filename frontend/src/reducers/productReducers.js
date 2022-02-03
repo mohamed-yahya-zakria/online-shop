@@ -3,14 +3,12 @@ import { PRODUCT_DETAILS_FAIL, PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_SUCCESS,
 export const productListReducer = (state = {loading: true, products: []} , action) =>{
     switch(action.type){
         case PRODUCT_LIST_REQUEST:
-            /* we have request take some time therefore loading is true*/
             return{loading: true};
         case PRODUCT_LIST_SUCCESS:
             return {loading: false, products: action.payload};
         case PRODUCT_LIST_FAIL:
             return {loading: false, error: action.payload};
         default:
-                /* we display the previous state*/
                 return state;
     }
 }

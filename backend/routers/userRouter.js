@@ -6,9 +6,6 @@ const User = require("../models/userModel");
 const generateToken = require("../utils");
 
 const userRouter = express.Router();
-// wecoz the nature of mongoose operations in async
-//  we used the asyncHandler middleware to get the error message instead of infint loading page
-
 userRouter.get(
   "/seed",
   asyncHandler(async (req, res) => {
@@ -28,7 +25,6 @@ userRouter.post(
     console.log('dfgdgfdgdfs',user) */
 
     if (user) {
-      //compareSync is method take take to params(1-from user , 2 which hashed in DB)
       if (bcrypt.compareSync(req.body.password, user.password)) {
         res.send({
           _id: user._id,
@@ -37,11 +33,9 @@ userRouter.post(
           isAdmin: user.isAdmin,
           token: generateToken(user),
         });
-        //return for if
         return;
       }
     }
-    //status(401) = unauthorized status
     res.status(401).send({ message: "Invalid email or password " });
   })
 );

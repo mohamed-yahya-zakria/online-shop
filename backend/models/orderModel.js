@@ -2,14 +2,13 @@ const mongoose = require("mongoose");
 const { Schema } = require("mongoose");
 const Product = require("./productModel");
 
-//by having all  this info in the model we save thin inf in UI
+
 const orderSchema = new Schema({
   orderItems: [
     {
       name: { type: String, required: true },
       qty: { type: Number, required: true },
       price: { type: Number, required: true },
-      //ref: "Product" = which refer to productModel 
       product: { type: Schema.Types.ObjectId, ref: "Product", required: true },
     },
   ],
@@ -33,7 +32,7 @@ const orderSchema = new Schema({
   isDelivered: { type: Boolean, default: false },
   deliveredAt: { type: Date },
 },
-// save the data in database
+
 {timestamps: true},
 );
 

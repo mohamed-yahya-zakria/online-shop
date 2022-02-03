@@ -18,7 +18,6 @@ export const createOrder = (order) => async (dispatch, getState) => {
       const {userSignin:{userData},
     }  = getState();
       const {data} = await Axios.post('/api/order', order, { 
-        // we encrypt the info users in requset Header (network => XHR => select item => Headers) in browser 
           headers: {
               Authorization: `Bearer ${userData.token}`,
           },

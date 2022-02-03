@@ -7,9 +7,6 @@ export const listProducts = ()=> async(dispatch)=>{
         type: PRODUCT_LIST_REQUEST,
     });
     try{
-        /* Ajax request */
-   /* we wrote async coz Ajax request work with async */
-   /* fetch data from backend */
       const {data} = await Axios.get('/api/products');
       dispatch({type: PRODUCT_LIST_SUCCESS, payload: data});
     } catch(error){
@@ -29,14 +26,6 @@ export const detailsProduct = (productId)=>  async (dispatch) => {
             error.response && error.response.data.message
               ? error.response.data.message 
              : error.message}); 
-
-             /* 1- error.response = displayed normal error (Error objects are not valid ) without messageBox compo to use
-             
-             2- error.response.data.message =  displayed messageBox compo  and received the message which i wrote in backend 
-
-             3-error.message = displayed messageBox compo but received (send status from backend ) and the message will be "request fiald with status 404"  but inside the messageBox component
-
-             */
     }
 };
 
